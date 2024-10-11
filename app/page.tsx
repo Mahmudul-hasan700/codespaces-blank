@@ -58,9 +58,9 @@ export default function HomePage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <main className="flex-grow container mx-auto px-4 py-8">
-        <Card className="w-full max-w-md mx-auto">
+    <div className="flex flex-col max-w-screen-md mx-auto">
+      <main className="flex-grow px-4 py-8">
+        <Card className="w-full">
           <CardHeader>
             <CardTitle>Shorten Your URL</CardTitle>
             <CardDescription>Enter a long URL to get a short link</CardDescription>

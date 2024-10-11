@@ -19,7 +19,7 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode; titl
 
 export function FeaturesSection() {
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section className="w-full py-20 bg-white dark:bg-gray-900">
       <div className="container px-4 md:px-6">
         <h2 className="text-3xl font-bold text-center mb-12">Why Choose Our URL Shortener?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
