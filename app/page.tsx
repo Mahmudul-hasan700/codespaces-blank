@@ -1,7 +1,7 @@
 "use client";
 import * as React from "react";
 import { useState } from "react"; // Add this import for useState
-import { motion } from "framer-motion";
+
 import { ArrowRight, Scissors, Loader2 } from "lucide-react"; // Import the missing Scissors icon
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
