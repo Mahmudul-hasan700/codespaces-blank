@@ -2,7 +2,7 @@
 import * as React from "react";
 import { useState } from "react"; // Add this import for useState
 import { motion } from "framer-motion";
-import { ArrowRight, Scissors } from "lucide-react"; // Import the missing Scissors icon
+import { ArrowRight, Scissors, Loader2 } from "lucide-react"; // Import the missing Scissors icon
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label"; // Import Label component if not yet imported
@@ -15,9 +15,11 @@ import { toast } from "react-hot-toast";
 export default function HomePage() {
   const [longUrl, setLongUrl] = useState(""); // Ensure state initialization with an empty string
   const [shortUrl, setShortUrl] = useState("");
+  const [loading, setLoading] = useState(false); // New loading state
 
   const shortenUrl = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true); // Set loading to true
 
     try {
       // Send a POST request to /api/shorten with the longUrl
@@ -45,8 +47,11 @@ export default function HomePage() {
     } catch (error) {
       console.error("Error shortening URL:", error);
       toast.error("An unexpected error occurred. Please try again.");
+    } finally {
+      setLoading(false); // Set loading to false after the operation completes
     }
   };
+
   const handleCopy = () => {
     navigator.clipboard.writeText(shortUrl);
     toast.success("Successfully Copied"); // Fix typo in toast message (success instead of succes)
@@ -73,8 +78,14 @@ export default function HomePage() {
                   required
                 />
               </div>
-              <Button type="submit" className="w-full">
-                <Scissors className="mr-2 h-4 w-4" /> Shorten URL
+              <Button type="submit" className="w-full" disabled={loading}>
+                {loading ? ( // Show loading indicator if loading is true
+                  <Loader2 className="animate-spin size-5" />
+                ) : (
+                  <>
+                    <Scissors className="mr-2 h-4 w-4" /> Shorten URL
+                  </>
+                )}
               </Button>
             </form>
 
@@ -103,7 +114,6 @@ export default function HomePage() {
         <FeaturesSection />
         <CTASection />
       </main>
-
     </div>
   );
 }
