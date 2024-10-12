@@ -40,6 +40,7 @@
     "@radix-ui/react-tooltip": "^1.1.3",
     "@supabase/supabase-js": "^2.45.4",
     "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
@@ -51,6 +52,7 @@
     "lucide-react": "^0.451.0",
     "nanoid": "^5.0.7",
     "next": "14.2.15",
+    "next-auth": "^4.24.8",
     "next-themes": "^0.3.0",
     "pg": "^8.13.0",
     "react": "^18",
@@ -67,6 +69,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/pg": "^8.11.10",
     "@types/react": "^18",
